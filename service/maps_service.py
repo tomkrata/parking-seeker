@@ -21,5 +21,5 @@ def getLatLon(search_query):
 
 
 if __name__ == "__main__":
-    place, coords = getLatLon('Ferrariho 8 Praha')
+    place, coords = getLatLon('Okruzni 484')
     print(f'place: "{place}" is located at {coords[0]},{coords[1]}')
