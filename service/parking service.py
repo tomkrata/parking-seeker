@@ -60,7 +60,7 @@ def isHoliday():
 
 if __name__ == "__main__":
     isHoliday()
-    # place, coords = getLatLon('Narodni muzeum')
-    coords = [50.0789482, 14.4309209]
+    place, coords = getLatLon('Narodni muzeum')
+    #coords = [50.0789482, 14.4309209]
     parking_ids = getParkingZonesNearby(coords, limit=100, range=1000)
     print("\n".join([f"{i+1}: {str(x)}" for i, x in enumerate(parking_ids)]))
