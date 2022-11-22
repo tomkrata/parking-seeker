@@ -7,7 +7,7 @@ def getLatLon(search_query):
     url = f"https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" \
           f"{search_query}" \
           f"&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=" \
-          f"AIzaSyAxqtpGpVxUcIzrsHjYL07IgIyijBPE_8Q"
+          f"AIzaSyDsnauimkX2faWlY_TsA-tY90XYTtWh8zY"
 
     payload = {}
     headers = {}
@@ -21,5 +21,5 @@ def getLatLon(search_query):
 
 
 if __name__ == "__main__":
-    place, coords = getLatLon('Okruzni 484')
+    place, coords = getLatLon('Bowling dejvice')
     print(f'place: "{place}" is located at {coords[0]},{coords[1]}')
