@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 from flask_restx import Api, Resource
 
+from service.maps_service import getLatLon
+
 if __name__ == "__main__":
     """Define Flask app"""
     flask_app = Flask(__name__)
@@ -8,8 +10,9 @@ if __name__ == "__main__":
               version="1.0",
               title="Parking seeker",
               description="Demo app for via")
-
     """Define namespace"""
-    movies_name_space = app.namespace("movies", description='Get info about movies')
+    maps_name_space = app.namespace("maps", description='Get info about maps')
+    import controller.maps_controller
     """Run Flask app"""
     flask_app.run(debug=True)
+
