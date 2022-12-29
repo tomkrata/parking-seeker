@@ -1,7 +1,5 @@
-from flask import Flask, jsonify
-from flask_restx import Api, Resource
-
-from service.maps_service import getLatLon
+from flask import Flask
+from flask_restx import Api
 
 if __name__ == "__main__":
     """Define Flask app"""
@@ -12,7 +10,11 @@ if __name__ == "__main__":
               description="Demo app for via")
     """Define namespace"""
     maps_name_space = app.namespace("maps", description='Get info about maps')
+    parking_name_space = app.namespace("parking", description='Get info about parking spaces')
+    utils_name_space = app.namespace("utils", description='Get various functions')
     import controller.maps_controller
+    import controller.parking_controller
+    import controller.utils_controller
     """Run Flask app"""
     flask_app.run(debug=True)
 

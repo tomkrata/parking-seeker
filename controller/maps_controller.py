@@ -1,10 +1,6 @@
-from flask import Flask, jsonify
-from flask_restx import Api, Resource
-import json
+from flask_restx import Resource
 from __main__ import app, maps_name_space
 from service.maps_service import getLatLon
-
-print("I WAS HERE")
 
 
 @maps_name_space.route("/latlon/<string:query>")
