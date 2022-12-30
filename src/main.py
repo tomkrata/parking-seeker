@@ -5,6 +5,7 @@ from pymongo import MongoClient
 if __name__ == "__main__":
     """Define Flask app"""
     flask_app = Flask(__name__, template_folder='templates')
+    flask_app.secret_key = 'asrtarstaursdlarsn'
     app = Api(app=flask_app,
               version="1.0",
               title="Parking seeker",
