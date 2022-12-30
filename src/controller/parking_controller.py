@@ -1,7 +1,7 @@
 from flask_restx import Resource
 from __main__ import app, parking_name_space
-from service.maps_service import getLatLon
-from service.parking_service import getParkingZonesNearby
+from src.service.maps_service import getLatLon
+from src.service.parking_service import getParkingZonesNearby
 from flask import request, jsonify
 import requests
 

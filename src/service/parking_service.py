@@ -1,10 +1,9 @@
-import calendar
 import datetime
 
 import requests
 import json
 
-from service.maps_service import getLatLon
+from src.service.maps_service import getLatLon
 
 
 def getParkingZonesNearby(latlon, holiday, limit=10, range=200):

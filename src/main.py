@@ -1,9 +1,10 @@
 from flask import Flask
 from flask_restx import Api
+from pymongo import MongoClient
 
 if __name__ == "__main__":
     """Define Flask app"""
-    flask_app = Flask(__name__)
+    flask_app = Flask(__name__, template_folder='templates')
     app = Api(app=flask_app,
               version="1.0",
               title="Parking seeker",
@@ -15,6 +16,22 @@ if __name__ == "__main__":
     import controller.maps_controller
     import controller.parking_controller
     import controller.utils_controller
+
+    # blueprint for auth routes in our app
+    import controller.user_controller
+    flask_app.register_blueprint(controller.user_controller.auth)
+    flask_app.register_blueprint(controller.user_controller.master)
+
+    # blueprint for non-auth parts of app
+    # from .main import main as main_blueprint
+    # app.register_blueprint(main_blueprint)
+
+    """Setup mongoDB"""
+    client = MongoClient(
+        "mongodb+srv://tomkrata:ecJeKf2jSthYoSBg@cluster0.ttgdvmc.mongodb.net/?retryWrites=true&w=majority")
+    db = client.flask_db
+    todos = db.todos
+
     """Run Flask app"""
     flask_app.run(debug=True)
 

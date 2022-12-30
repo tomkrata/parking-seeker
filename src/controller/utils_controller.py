@@ -1,10 +1,7 @@
-from datetime import datetime
-
 from flask_restx import Resource
 from __main__ import app, utils_name_space
-from flask import request, jsonify
 
-from service.utils_service import isHoliday
+from src.service.utils_service import isHoliday
 
 
 @utils_name_space.route("/isholiday")
