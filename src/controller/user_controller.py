@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from model.user import User
@@ -6,6 +6,7 @@ from service.user_service import user_exists, insert_user, fetch_user
 
 auth = Blueprint('auth', 'controller.user_controller')
 master = Blueprint('main', 'controller.user_controller')
+par = Blueprint('par', 'controller.user_controller')
 
 
 @auth.route('/login')
@@ -26,9 +27,9 @@ def login_post():
     # take the user-supplied password, hash it, and compare it to the hashed password in the database
     if not user or not check_password_hash(user['password'], password):
         flash('Please check your login details and try again.')
-        return redirect(url_for('auth.login')) # if the user doesn't exist or password is wrong, reload the page
-
+        return redirect(url_for('auth.login'))  # if the user doesn't exist or password is wrong, reload the page
     # if the above check passes, then we know the user has the right credentials
+    session['username'] = user['username']
     return redirect(url_for('main.profile'))
 
 
@@ -52,6 +53,7 @@ def signup_post():
 
 @auth.route('/logout')
 def logout():
+    session['username'] = None
     return render_template('login.html')
 
 
@@ -60,6 +62,13 @@ def index():
     return render_template('index.html')
 
 
+@par.route('/park')
+def park():
+    # if session['username'] is None:
+    #     flash('You are not signed in, the parking api will not work!')
+    return render_template('parking.html')
+
+
 @master.route('/profile')
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html', user=session['username'])

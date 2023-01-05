@@ -19,9 +19,10 @@ if __name__ == "__main__":
     import controller.utils_controller
 
     # blueprint for auth routes in our app
-    from controller.user_controller import auth, master
+    from controller.user_controller import auth, master, par
     flask_app.register_blueprint(auth)
     flask_app.register_blueprint(master)
+    flask_app.register_blueprint(par)
 
     # blueprint for non-auth parts of app
     # from .main import main as main_blueprint
