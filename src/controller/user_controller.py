@@ -71,4 +71,6 @@ def park():
 
 @master.route('/profile')
 def profile():
+    if 'username' not in session:
+        session['username'] = None
     return render_template('profile.html', user=session['username'])

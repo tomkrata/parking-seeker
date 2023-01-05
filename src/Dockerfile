@@ -10,8 +10,8 @@ ENV PYTHONUNBUFFERED True
 
 # Install production dependencies.
 COPY requirements.txt requirements.txt
-RUN py -m pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 
 COPY . ./
-CMD [ "py", "main.py"]
+CMD [ "python3", "main.py"]

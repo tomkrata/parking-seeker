@@ -17,7 +17,8 @@ class NearbyParking(Resource):
         limit = request.args.get('limit', default=100)
         range = request.args.get('range', default=1000)
         place, coords = getLatLon(place)
-        response = requests.get("http://localhost:5000/utils/isholiday").json()
+        
+        response = requests.get(request.url_root+"utils/isholiday").json()
         parking_ids = getParkingZonesNearby(coords, holiday=response, limit=limit, range=range)
         return jsonify(parking_ids)
         # return "\n".join([f"{i + 1}: {str(x)}" for i, x in enumerate(parking_ids)])

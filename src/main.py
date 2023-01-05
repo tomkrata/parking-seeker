@@ -32,5 +32,6 @@ if __name__ == "__main__":
 
     """Run Flask app"""
     # flask_app.run(debug=True)
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    port = int(os.environ.get("PORT", 5000))
+    flask_app.run(debug=True, host="0.0.0.0", port=port)
 
