@@ -1,6 +1,6 @@
 from flask_restx import Resource
 from __main__ import app, maps_name_space
-from src.service.maps_service import getLatLon
+from service.maps_service import getLatLon
 
 
 @maps_name_space.route("/latlon/<string:query>")

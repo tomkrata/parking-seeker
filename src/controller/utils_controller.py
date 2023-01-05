@@ -1,7 +1,7 @@
 from flask_restx import Resource
 from __main__ import app, utils_name_space
 
-from src.service.utils_service import isHoliday
+from service.utils_service import isHoliday
 
 
 @utils_name_space.route("/isholiday")
