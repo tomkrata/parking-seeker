@@ -37,5 +37,6 @@ Login, logout, sign up and session created. User can use the api only when logge
 ## Deployed
 URL of final dockerized product:
 https://parking-seeker.herokuapp.com/park
+
 In case heroku decides to stop working:
 https://www.youtube.com/watch?v=ys28tjQ4RTQ
